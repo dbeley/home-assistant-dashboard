@@ -1,0 +1,244 @@
+title: Home
+  - path: default_view
+    title: Home
+    cards:
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.0xa4c1388cbae06b8c_power
+          - sensor.0xa4c138f75a5d3587_power
+          - sensor.0xa4c13881f5a58791_power
+          - sensor.0xa4c1388d56ebda03_power
+        title: Consommation
+        stat_types:
+          - mean
+          - min
+          - max
+        days_to_show: 7
+        hide_legend: true
+      - type: entities
+        entities:
+          - binary_sensor.porte_water_leak
+      - type: logbook
+        entities:
+          - binary_sensor.detecteur_d_inondation_contact
+        title: Porte d'entrée
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.0x003c84fffedc4cf1_humidity
+          - sensor.capteur_2_humidity
+          - sensor.capteur_3_humidity
+          - sensor.capteur_4_humidity
+          - sensor.capteur_aqara_e_ink_humidity
+        title: Humidité
+        stat_types:
+          - mean
+          - min
+          - max
+        days_to_show: 7
+        hide_legend: true
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.0x003c84fffedc4cf1_temperature
+          - sensor.capteur_2_temperature
+          - sensor.capteur_3_temperature
+          - sensor.capteur_4_temperature
+          - sensor.capteur_aqara_e_ink_temperature
+        title: Température
+        stat_types:
+          - mean
+          - min
+          - max
+        days_to_show: 7
+        hide_legend: true
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.capteur_aqara_e_ink_voc
+        title: Qualité de l'air
+        stat_types:
+          - mean
+          - min
+          - max
+        days_to_show: 7
+        hide_legend: true
+      - type: weather-forecast
+        entity: weather.forecast_home
+        show_forecast: false
+      - type: custom:history-explorer-card
+        cardName: historycard-12566491
+      - type: entities
+        entities:
+          - entity: sensor.porte_battery
+          - entity: sensor.detecteur_d_inondation_battery
+          - entity: sensor.0x003c84fffedc4cf1_battery
+          - entity: sensor.capteur_2_battery
+          - entity: sensor.capteur_3_battery
+          - entity: sensor.capteur_4_battery
+          - entity: sensor.capteur_aqara_e_ink_battery
+          - entity: sensor.capteur_sans_ecran_1_battery
+          - entity: sensor.capteur_sans_ecran_2_battery
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.capteur_sans_ecran_1_temperature
+          - sensor.capteur_sans_ecran_2_temperature
+        title: Frigo
+        stat_types:
+          - mean
+          - min
+          - max
+        days_to_show: 7
+        hide_legend: true
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_sans_ecran_1_humidity
+              - sensor.capteur_sans_ecran_2_humidity
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_sans_ecran_1_temperature
+              - sensor.capteur_sans_ecran_2_temperature
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_2_temperature
+              - sensor.capteur_2_humidity
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_3_temperature
+              - sensor.capteur_3_humidity
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_aqara_e_ink_temperature
+              - sensor.capteur_aqara_e_ink_humidity
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_4_temperature
+              - sensor.capteur_4_humidity
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_aqara_e_ink_temperature
+              - sensor.capteur_2_temperature
+              - sensor.capteur_3_temperature
+              - sensor.capteur_4_temperature
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_sans_ecran_1_humidity
+              - sensor.capteur_sans_ecran_2_humidity
+              - sensor.capteur_2_humidity
+              - sensor.capteur_3_humidity
+              - sensor.capteur_4_humidity
+              - sensor.0x003c84fffedc4cf1_humidity
+              - sensor.capteur_aqara_e_ink_humidity
+            line_color: blue
+            line_width: 8
+            font_size: 75
+            show_legend: false
+            show:
+              - legend: false
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_sans_ecran_1_temperature
+              - sensor.capteur_sans_ecran_2_temperature
+              - sensor.capteur_2_temperature
+              - sensor.capteur_3_temperature
+              - sensor.capteur_4_temperature
+              - sensor.0x003c84fffedc4cf1_temperature
+              - sensor.capteur_aqara_e_ink_temperature
+            line_color: var(--accent-color)
+            line_width: 8
+            font_size: 75
+  - title: Dashboard
+    path: dashboard
+    badges: []
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.0xa4c13881f5a58791_energy
+          - entity: sensor.0xa4c1388cbae06b8c_energy
+          - entity: sensor.0xa4c1388d56ebda03_energy
+          - entity: sensor.0xa4c138f75a5d3587_energy
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.0xa4c1388cbae06b8c_power
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.0xa4c138f75a5d3587_power
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.0xa4c13881f5a58791_energy
+            line_color: var(--acent-color)
+            line_width: 8
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_2_temperature # salle de bain
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_3_temperature # cuisine
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_aqara_e_ink_temperature # salon
+            line_color: blue
+            line_width: 8
+            font_size: 75
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.capteur_4_temperature # chambre
+            line_color: '#e74c3c'
+            line_width: 8
+            font_size: 75
